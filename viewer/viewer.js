@@ -7365,7 +7365,7 @@ var PDFSidebar = function () {
       this.isOpen = true;
       this.toggleButton.classList.add('toggled');
       this.outerContainer.classList.add('sidebarMoving');
-      this.outerContainer.classList.add('sidebarOpen');
+      //this.outerContainer.classList.add('sidebarOpen');
       if (this.active === SidebarView.THUMBS) {
         this._updateThumbnailViewer();
       }
