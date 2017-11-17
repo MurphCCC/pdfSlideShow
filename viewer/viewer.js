@@ -6403,7 +6403,8 @@ var PDFPageView = function () {
 
       this.cancelRendering();
       var div = this.div;
-      div.style.width = Math.floor(this.viewport.width) + 'px';
+      div.style.width = '99%'; 
+     //div.style.width = Math.floor(this.viewport.width) + 'px';
       div.style.height = Math.floor(this.viewport.height) + 'px';
       var childNodes = div.childNodes;
       var currentZoomLayerNode = keepZoomLayer && this.zoomLayer || null;
