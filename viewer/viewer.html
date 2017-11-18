@@ -355,7 +355,11 @@ See https://github.com/adobe-type-tools/cmap-resources
     </div> <!-- outerContainer -->
     <div id="printContainer"></div>
   </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
+
+
   //This script runs every 5 seconds and checks where we are on the page.  If the next button is disabled, that means we are on the last page so we need to go back to the first page.
   setInterval(function(){ 
     var nextButton = document.getElementById("next");
@@ -365,8 +369,21 @@ See https://github.com/adobe-type-tools/cmap-resources
     } else {
       document.getElementById("next").click();
     }
-  }, 5000);
-
+  }, function () {
+    var tmp = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'json',
+        'url': "../upload/server/php/config.json",
+        'success': function (data) {
+            tmp = data;
+        }
+    });
+    return Number(tmp[0].value) * 1000;
+}());
+</script>
 </script>
 </html>
 
