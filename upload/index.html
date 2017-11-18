@@ -28,6 +28,10 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/pdf/viewer/viewer.html">View Slideshow</a></li>
+<li><form>
+        <input type="number" name="seconds" min="1" max="30" value="10"></input>
+        <button id="seconds" type="button">Set Slideshow duration</button>
+    </form></li>
                 <li><a href="https://themurphs.net">&copy; Mike Conrad</a></li>
             </ul>
         </div>
@@ -111,6 +115,23 @@ $(function () {
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
+
+//process the form for setting duration of slides
+$('#seconds').click(function() {
+   var formData = JSON.stringify($("form").serializeArray());
+    $.ajax({
+        'async': false,
+        'type': "POST",
+        'global': false,
+        'data': {config:formData},
+        'url': "server/php/process.php",
+        'success': function (data) {
+            tmp = data;
+        }
+    });
+
+
+})
 </script>
 </body>
 </html>
