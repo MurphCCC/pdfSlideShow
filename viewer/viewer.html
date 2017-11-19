@@ -35,7 +35,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 
 <!-- This snippet is used in production (included from viewer.html) -->
 <link rel="resource" type="application/l10n" href="locale/locale.properties">
-<script src="../build/pdf.js"></script>
+<script src="../js/pdf.js"></script>
 
 
     <script src="../js/viewer.js"></script>
@@ -355,7 +355,7 @@ See https://github.com/adobe-type-tools/cmap-resources
     </div> <!-- outerContainer -->
     <div id="printContainer"></div>
   </body>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/jquery.min.js"></script>
 
 <script>
 
@@ -365,7 +365,12 @@ See https://github.com/adobe-type-tools/cmap-resources
     var nextButton = document.getElementById("next");
     var sideBar = document.getElementById("outerContainer").classList;
     if(nextButton.disabled) {
-      window.location = 'viewer.html#page=1';
+      location.reload();
+     var uri = window.location.href.toString();
+if (uri.indexOf("?") > 0) {
+    var clean_uri = uri.substring(0, uri.indexOf("?"));
+    window.history.replaceState({}, document.title, clean_uri);
+}
     } else {
       document.getElementById("next").click();
     }
