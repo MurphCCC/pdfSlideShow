@@ -376,14 +376,29 @@ See https://github.com/adobe-type-tools/cmap-resources
         'type': "GET",
         'global': false,
         'dataType': 'json',
-        'url': "../upload/server/php/config.json",
+        'url': "../upload/config.json",
         'success': function (data) {
             tmp = data;
         }
     });
     return Number(tmp[0].value) * 1000;
 }());
-</script>
+
+$(document).ready(function(){
+    var tmp = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'json',
+        'url': "../upload/server/php/config.json",
+        'success': function (data) {
+            tmp = data;
+        }
+    });
+    return Number(tmp[0].value) * 1000;
+    $('#slideshowTime').html = 'Number(tmp[0].value) * 1000';
+})
 </script>
 </html>
 
