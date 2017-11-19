@@ -46,3 +46,30 @@ button#seconds {
     color: white;
     font-size: 18px;
 }
+li.duration {
+    position: absolute;
+    right: 44vw;
+    font-size: 19px;
+    float: right;
+    top: 9px;
+}
+.copy {
+    position: absolute !important;
+    right: 0px;
+}
+a.navbar-brand {
+    position: absolute;
+    left: 10px;
+}
+
+a.viewerLink {
+    font-size: 20px;
+    background: #5bb85bbd;
+    color: black !important;
+}
+
+a.viewerLink:hover {
+   font-size: 20px;
+   background: #5bb85b !important;
+   color: white !important;
+}
