@@ -90,7 +90,7 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : 'server/php/';
+                '//jquery-file-upload.appspot.com/' : 'upload/server/php/';
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
@@ -127,7 +127,7 @@ $('#seconds').click(function() {
         'type': "POST",
         'global': false,
         'data': {config:formData},
-        'url': "./process.php",
+        'url': "upload/process.php",
         'success': function (data) {
             tmp = data;
         }
@@ -143,7 +143,7 @@ $(document).ready(function(){
         'type': "GET",
         'global': false,
         'dataType': 'json',
-        'url': "./config.json",
+        'url': "upload/config.json",
         'success': function (data) {
             tmp = data;
         }
